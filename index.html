@@ -5,24 +5,40 @@
         <meta charset=UTF-8>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/style.css">
+        <script src="/js/bookmarks.js"></script>
     </head>
-    <body>
+    <body> 
         <main>
+            <header class="acrylic">
+                <div id="logo">
+                    <img src="img/logo.gif" alt="">
+                </div>
+                <div id="profile">
+                    <img src="img/profile.png" alt="">
+                </div>
+            </header>
             <div class="container">
-                <div class="quicklaunch">
+                <div id="quicklaunch" class="acrylic">
                     <!-- make this like the header. add date and time to the other side -->
                     <h1>Welcome, Nilbog</h1>
-                    <div id="statusbar">
-                        <div class="module"><img src="img/cloudy.png" alt=""> <a>26&deg;C</a></div>
-                    </div>
                     <form action="https://www.google.com/search" method="get">
                         <input id="searchbar" type="search" name="q" placeholder="Search Google" autocomplete="off" autocorrect="off" spellcheck="false">
                     </form>
                     <div id="bookmarks">
-                        <a href="http://github.com/"><img src="/img/bookmarks/github.png" alt=""><p>github</p></a>
+                        <a href="http://github.com/"><img src="/img/bookmarks/github.png" alt=""></a>
+                        <a id="addBookmark" onclick="addBookmark">+</a>
                     </div>
                 </div>
-                
+                <div id="apptray" class="acrylic">
+                    <a href="">
+                        <div><img src="img/icons/pihole.png" alt=""></div>
+                        <p>PiHole</p>
+                    </a>
+                    <a href="">
+                        <div><img src="img/icons/immich.png" alt=""></div>
+                        <p>Immich</p>
+                    </a>
+                </div>
             </div>
         </main>
         <footer></footer>
