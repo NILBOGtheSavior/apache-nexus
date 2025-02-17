@@ -1,0 +1,91 @@
+:root {
+    --primary-color: var(--dark-mode);
+    --secondary-color: var(--light-mode);
+    --primary-font: var(--dark-mode-text);
+    --secondary-font: var(--light-mode-text);
+    --dark-mode: rgb(0, 0, 0, 0.25);
+    --light-mode: rgb(255, 255, 255, 0.5);
+    --dark-mode-text: white;
+    --light-mode-text: black;
+}
+
+/* Styles */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url(/img/wallpaper.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+.container {
+    max-width: 75%;
+    margin: auto;
+    padding: 5em;
+    display: flex;
+    flex-direction: column;
+}
+    
+.quicklaunch {
+    background-color: var(--primary-color);
+    backdrop-filter: blur(10px);
+    color: var(--primary-font);
+    padding: 1em;
+    border-radius: 25px;
+    font-size: 2em;
+    #statusbar {
+        height: 50px;
+        display: block;
+        img {
+            height: 20px;
+        }
+        a {
+            font-size: 0.5em;
+        }
+    }
+    #bookmarks {
+        padding: 1em;
+        display: flex;
+        justify-content: space-between;
+        a {
+            background-color: var(--secondary-color);
+            padding: 10px;
+            display: inline-block;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            p {
+                margin: 0;
+                font-size: 0.5em;
+                color: var(--light-mode-text);
+            }
+            img {
+                width: 50px;
+                height: 50px;
+            }
+        }
+        
+    }
+}
+
+
+
+/* Modules */
+
+#searchbar {
+    width: 400px;
+    background-color: var(--secondary-color);
+    padding: 5px;
+    border-radius: 20px;
+    font-size: 0.5em;
+    border: none;
+    outline: none;
+}
+
+/* Reset */
+
+body, h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-size: 1em;
+}
