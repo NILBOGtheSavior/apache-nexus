@@ -1,66 +1,3 @@
-/************************************************************************************************************
- *  :|||#       :||||||||#  :|||#     :|||#    :||||||#    :|||#  :|||#    .08888888         _-====-_       *
- *  :|||#       :||||||||#  :||||#   :||||#  :||||#|||||#  :||||# :|||#   0888    888       < =- --= }      *
- *  :|||#       :|||#       :|||||# :|||||#  :|||#  ||||#  :|||||#:|||#   8888    888        |~~~~~~|==,    *
- *  :|||#       :|||||||#   :|||||||||||||#  :|||#  ||||#  :||||||||||#     8888888         /@   ~  @\ ))   *
- *  :|||#       :|||#       :|||#:|||#||||#  :|||#  ||||#  :|||#:|||||#   88      888      | ~  @ ~  ~|?    *
- *  :||||||||#  :||||||||#  :|||# :|# ||||#  :||||#|||||#  :|||# :||||#   88      888      |~   ~  @ ~|     *
- *  :||||||||#  :||||||||#  :|||#     ||||#    :||||||#    :|||#  :|||#    888888888        \ @  ~  ~/      *
- *                                                                                           \______/=      *
- *///                                                                                         ```````    \\\*
-   //     A script built for making dynamic websites without the need for a backend.                     \\
-   //     It allows developers to inject HTML, CSS, and other assets seamlessly, making it ideal         \\
-   //     for static sites that need some dynamic behavior.                                              \\
-   //                                                                 Created by NILBOGtheSavior         \\
-   //     ````````````````````````````````````````````````````````                                       \\
-   //                                                                 Cheers!       |__________|         \\
-   //   For Developers:                                                             | <>    <> |         \\
-   //   ---------------                                                             |     <>   |         \\
-   //   If you're looking to tinker with the code, everything is documented         | <>    <> |         \\
-   //   and modular,so you can modify or extend functionality as needed.            |   <>     |         \\
-   //                                                                               |          |         \\
-   //   For Users:                                                                   \________/          \\
-   //   ----------                                                                                       \\
-   //   If you just want to use this without diving into the code, refer to the documentation:           \\
-   //   [Insert Documentation Link Here]                                                                 \\
-   //                                                                                                    \\
-   /******************************************************************************************************/
-
-
-
-
-//  Injector
-
-/*
- *  const injector = new Lemon8();
- */
-
-class Lemon8 {
-
-    constructor() {
-
-    }
-}
-
-//  Generator
-
-/*  Single 
- *  const injector = new Lemon8();
- */
-
-class Juicer {
-
-    constructor() {
-
-    }
-
-
-}
-
-
-
-
-const myLemon = ```
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 27.5.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -171,4 +108,3 @@ const myLemon = ```
 	c0.077,0,0.159-0.003,0.235-0.003c3.673-0.061,7.105-1.547,9.658-4.19c2.553-2.64,3.923-6.116,3.862-9.789
 	c-0.21-12.574-1.039-25.273-2.461-37.744C1300.146,926.674,1298.335,923.405,1295.461,921.118z"/>
 </svg>
-```

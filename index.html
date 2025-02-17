@@ -13,40 +13,40 @@
                 <div id="logo">
                     <img src="img/logo.gif" alt="">
                 </div>
-                <div id="profile">
-                    <div id="clock">12:00 AM</div>
-                    <div><img src="img/profile.png" alt=""></div>
+                <div id="menu" class="node">
+                    <!-- On click, the taskbar will change and show 3 options, light-mode/dark-mode switch, edit mode, and settings icon-->
+                    <div id="taskbar"><p id="lemonthyme">12:00 AM</p></div>
+                    <div id="profile"><img src="img/profile.png" alt=""></div>
                 </div>
             </header>
             <div class="container">
-                <div id="quicklaunch" class="acrylic">
+                <section id="nexuslauncher" class="acrylic">
                     <!-- make this like the header. add date and time to the other side -->
                     <h1>Welcome, Nilbog</h1>
                     <form action="https://www.google.com/search" method="get">
-                        <input id="searchbar" type="search" name="q" placeholder="Search Google" autocomplete="off" autocorrect="off" spellcheck="false">
+                        <input id="searchbar" type="search" name="q" placeholder="Search Google" autocomplete="off" autocorrect="off" spellcheck="false" class="node">
                     </form>
                     <div id="bookmarks">
-                        <a href="http://github.com/"><img src="/img/bookmarks/github.png" alt=""></a>
-                        <a id="addBookmark" onclick="addBookmark">+</a>
+                        <a href="http://github.com/" class="node"><img src="/img/bookmarks/github.png" alt=""></a>
+                        <a id="addBookmark" class="node viewMode" onclick="addBookmark">+</a>
                     </div>
-                </div>
-                <div id="apptray" class="acrylic">
-                    <a href="">
+                </section>
+                <section id="apptray" class="acrylic">
+                    <a href="" class="node">
                         <div><img src="img/icons/pihole.png" alt=""></div>
                         <p>Pihole</p>
                     </a>
-                    <a href="">
+                    <a href="" class="node">
                         <div><img src="img/icons/immich.png" alt=""></div>
                         <p>Immich</p>
                     </a>
-                    <a href="">
-                        <p>+</p><p></p>
-                        <p>Add another app</p>
+                    <a href="" class="node viewMode">
+                        <p>+</p>
                     </a>
                     <a class="invisible">
                     </a>
                 </div>
-            </div>
+            </section>
         </main>
         <footer></footer>
     </body>

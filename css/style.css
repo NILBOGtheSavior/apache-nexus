@@ -7,12 +7,19 @@
     --light-mode: rgb(255, 255, 255, 0.5);
     --dark-mode-text: white;
     --light-mode-text: black;
+    --font: quicksand;
+}
+
+@font-face {
+    font-family: quicksand;
+    src:
+        url(fonts/Quicksand_Light.otf);
 }
 
 /* Styles */
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font);
     background-image: url(/img/wallpaper.jpg);
     background-size: cover;
     background-position: center;
@@ -31,13 +38,17 @@ header {
             display: inline-block;
         }
     }
-    #profile {
+    #menu {
         display: flex;
         align-items: center;
-        img {
-            margin: 35px;
-            width: 50px;
-            border-radius: 25px;
+        border-radius: 50px;
+        margin: 35px;
+        div {
+            margin-inline: 15px;
+            img {
+                width: 50px;
+                border-radius: 25px;
+            }
         }
     }
 }
@@ -66,13 +77,28 @@ main {
     box-shadow: -2px 2px 6px -2px black;
 }
 
+.node {
+    box-shadow: inset 0 0 5px -2px black;
+    transition: box-shadow 500ms;
+}.node:hover {
+    box-shadow: inset 0 0 10px 0px black;
+    cursor: pointer;
+}
+
 .invisible {
     box-shadow: none !important;
 }
 
 /* Modules */
 
-#quicklaunch {
+.viewMode {
+    justify-content: center;
+    display: none !important;
+}
+.viewMode:hover {
+    cursor: pointer;
+}
+#nexuslauncher {
     font-size: 2em;
     #bookmarks {
         padding-block: 1em;
@@ -87,8 +113,7 @@ main {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            box-shadow: inset 0 0 5px -2px black;
-            transition: box-shadow 500ms;
+            
             align-items: center; 
             p {
                 margin: 0;
@@ -103,10 +128,6 @@ main {
         } a:hover {
             box-shadow: inset 0 0 10px 0px black;
         }
-        #addBookmark:hover {
-            cursor: pointer;
-        }
-        
     }
 }
 
@@ -121,8 +142,6 @@ main {
         align-items: center;
         text-decoration: none;
         color: var(--dark-mode-text);
-        box-shadow: inset 0 0 5px -2px black;
-        transition: box-shadow 500ms;
         margin: 5px;
         border-radius: 50px;
         padding-inline: 25px;
@@ -134,31 +153,22 @@ main {
             font-size: 2em;
         }
     }
-    a:hover {
-        box-shadow: inset 0 0 10px 0px black;
-    }
 }
 
 #searchbar {
-    width: 50%;
-    background-color: transparent;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.25);
     margin-block: 25px;
     padding: 5px 15px;
     border-radius: 20px;
     font-size: 0.75em;
     border: none;
     outline: none;
-    box-shadow: inset 0 0 5px -2px black;
-    transition: box-shadow 500ms;
-}
-#searchbar:focus {
+}#searchbar:focus {
     box-shadow: inset 0 0 5px 0px black;
-}
-#searchbar:hover {
-    box-shadow: inset 0 0 10px 0px black;
-}
-#searchbar::placeholder {
+}#searchbar::placeholder {
     color: rgb(255, 255, 255, 0.5);
+    font-family: var(--font);
 }
 
 /* Reset */
@@ -166,4 +176,5 @@ main {
 body, h1, h2, h3, h4, h5, h6 {
     margin: 0;
     font-size: 1em;
+    font-weight: lighter;
 }
