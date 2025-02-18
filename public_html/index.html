@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!--                             
+*                        |                                     
+*    ,---.,---.,---.,---.|---.,---.    ,---.,---..  ,.   .,---.
+*    ,---||   |,---||    |   ||---'    |   ||---' >< |   |`---.
+*    `---^|---'`---^`---'`   '`---'    `   '`---''  ``---'`---'
+*         |                                             V 0.5.1
+*                                               NILBOGtheSavior
+*               https://github.com/NILBOGtheSavior/apache-nexus
+* 
+-->
+
+<html lang="en">
+    <head>
+        <title>Nilbog's Server</title>
+        <meta charset=UTF-8>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="/js/script.js" type="module"></script>
+    </head>
+    <body> 
+        <main>
+            <header>
+                <div class="acrylicPanel">
+                    <div id="logo">
+                        <img src="img/logo.gif" alt="">
+                    </div>
+                    <div id="menu" class="node" tabindex="0">
+                        <div id="taskbar">
+                            <p id="lemonthyme">12:00 AM</p>
+                            <span id="options" class="invisible">
+                                <a id="edit"><svg src="img/icons/edit.svg"></svg></a>
+                                <a id="light"><svg src="img/icons/light.svg"></svg></a>
+                                <a id="settings"><svg src="img/icons/settings.svg"></svg></a>
+                            </span>
+                        </div>
+                        <div id="profile"><img src="img/profile.png" alt=""></div>
+                    </div>
+                </div>
+            </header>
+            <div class="container">
+                <section id="nexuslauncher">
+                    
+                    <form action="https://www.google.com/search" method="get">
+                        <input id="searchbar" type="search" name="q" placeholder="Search Google" autocomplete="off" autocorrect="off" spellcheck="false" tabindex="0" class="widget">
+                    </form>
+                    <div id="bookmarks">
+                        <a class="page" href="http://github.com">
+                            <div class="acrylicWidget widget"><img src="/img/bookmarks/github.png" alt="" ></div>
+                            <p>GitHub</p>
+                        </a>
+                        <a class="page">
+                            <div class="acrylicWidget widget viewMode">+</div>
+                        </a>
+                    </div>
+                </section>
+                <section id="apptray">
+                    <a href="http://nexus.local:8080/admin/" class="acrylicWidget widget">
+                        <div><img src="img/icons/pihole.png" alt=""></div>
+                        <p>Pihole</p>
+                    </a>
+                    <a href="http://nexus.local:2283/" class="acrylicWidget widget">
+                        <div><img src="img/icons/immich.png" alt=""></div>
+                        <p>Immich</p>
+                    </a>
+                    <a href="" class="acrylicWidget widget viewMode">
+                        <p>+</p>
+                    </a>
+                </section>
+            </div>
+            <!-- <footer class="acrylicPanel"></footer> -->
+        </main>
+    </body>
+</html>
