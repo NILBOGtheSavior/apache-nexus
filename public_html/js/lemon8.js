@@ -1,13 +1,13 @@
-/*************************************************************************************************_-====-_***
- *  :|||#       :||||||||#  :|||#     :|||#    :||||||#    :|||#  :|||#         .08888888        < =- --= } *
- *  :|||#       :||||||||#  :||||#   :||||#  :||||#|||||#  :||||# :|||#        0888   *888        |      |___
- *  :|||#       :|||#       :|||||# :|||||#  :|||#  ||||#  :|||||#:|||#        8888    888       /~~~~~~~~\-.\
- *  :|||#       :|||||||#   :|||||||||||||#  :|||#  ||||#  :||||||||||#          8888888        / @   ~  @ \ }}
- *  :|||#       :|||#       :|||#:|||#||||#  :|||#  ||||#  :|||#:|||||#        888     888      | ~  @ ~  ~|//
- *  :||||||||#  :||||||||#  :|||# :|# ||||#  :||||#|||||#  :|||# :||||#        888,    888      |~   ~  @ ~|/
- *  :||||||||#  :||||||||#  :|||#     ||||#    :||||||#    :|||#  :|||#         888888888       \  @  ~  ~/ *
- *  ``````````  ``````````  `````     `````     ``````     `````  ````           ```````         \_______/= *
- *///                                                                                              ``````\\\*
+/**************************************************************************** ,,,;;;;;;;;;;;;;,,, ***********
+ *  :|||#       :||||||||#  :|||#     :|||#    :||||||#    :|||#  :|||#     ###::::.08888888::::###         *
+ *  :|||#       :||||||||#  :||||#   :||||#  :||||#|||||#  :||||# :|||#    ##:::::0888:::*888:::::##        *
+ *  :|||#       :|||#       :|||||# :|||||#  :|||#  ||||#  :|||||#:|||#    ##:::::8888::::888:::::##        *
+ *  :|||#       :|||||||#   :|||||||||||||#  :|||#  ||||#  :||||||||||#  ###::::::::8888888::::::::###      *
+ *  :|||#       :|||#       :|||#:|||#||||#  :|||#  ||||#  :|||#:|||||#    ##:::::888:::::888:::::##        *
+ *  :||||||||#  :||||||||#  :|||# :|# ||||#  :||||#|||||#  :|||# :||||#    ##:::::888,::::888:::::##        *
+ *  :||||||||#  :||||||||#  :|||#     ||||#    :||||||#    :|||#  :|||#     ###::::888888888::::###         *
+ *  ``````````  ``````````  `````     `````     ``````     `````  ````        ```;;;;;;;;;;;;;```           *
+ *///                                                                                                    \\\*
    //     A script built for making dynamic websites without the need for a backend.                     \\
    //     It allows developers to inject HTML, CSS, and other assets seamlessly, making it ideal         \\
    //     for static sites that need some dynamic behavior.                                              \\
@@ -38,8 +38,47 @@
 export class Lemon8 {
 
     constructor() {
-		console.log("Lemon8 initialized");
+		  this.modules = [];
     }
+
+  
+
+  lemon8(element, content = null, position = null, vars = null) {
+    let elemont = document.getElementById(element);
+    if (!elemont) {
+      console.error("Element not found");
+      return;
+    }
+
+    let juice = this.juicer(content, vars);
+    if (!juice) {
+      console.error("Juicer function didn't return valid content");
+      return;
+    }
+
+    if (position === 'end') {
+      elemont.insertAdjacentHTML('beforeend', juice);
+      console.log("Content appended");
+    } else {
+      elemont.innerHTML = juice;
+    }
+  }
+
+  juicer(content = null, vars = null) {
+    if (!content) {
+      content = "<h1 style='background-color: yellow; border: solid 5px black; padding: 25px; border-radius: 50px;'>lemon8 is injecting this element</h1>";
+    }
+    if (vars) {
+      console.log("format content complete");
+      // Additional variable handling can be done here if needed
+    }
+    return content;  // Return content as a string
+  }
+
+  pinkLemonade(fileName) {
+
+  }
+    
 
 	// SVG Injector
 
@@ -77,3 +116,15 @@ export class Lemon8 {
 
 export default Lemon8;
 
+/*
+    _-====-_
+   < =- --= }
+    |      |___
+   /~~~~~~~~\-.\
+  / @   ~  @ \ }}
+  | ~  @ ~  ~|//
+  |~   ~  @ ~|/
+  \  @  ~   ~/ 
+   \________/
+
+ */

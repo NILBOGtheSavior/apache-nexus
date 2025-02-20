@@ -10,6 +10,7 @@
   */
 
 
+@import url(nexusModules.css);
 
 
 /*
@@ -31,7 +32,7 @@
     --secondary-font: var(--light-mode-text);
     --dark-mode: rgb(0, 0, 0, 0.5);
     --dark-mode-active: rgb(125, 125, 125, 0.5);
-    --light-mode: rgb(255, 255, 255, 0.75);
+    --light-mode: rgb(255, 255, 255, 0.5);
     --dark-mode-text: white;
     --light-mode-text: black;
     --font: quicksand;
@@ -88,16 +89,23 @@ header {
         #menu {
             display: flex;
             align-items: center;
+            justify-content: end;
             border-radius: 50px;
-            margin: 15px;
-            min-width: 180px;
+            width: 200px;
+            transition: width 500ms, box-shadow 500ms;
             #taskbar {
                 flex: 1;
+                display: flex;
                 width: 100%;
+                align-items: center;
+                justify-content: end;
                 #options {
-                    width: 150px;
+                    /* width: 150px; */
+                    flex: 1;
+                    /* max-width: 100%; */
+                    overflow: hidden;
                     display: flex;
-                    justify-content: space-between;
+                    justify-content: space-around;
                     svg {
                         padding: 5px;
                         width: 15px;
@@ -107,10 +115,22 @@ header {
                         cursor:pointer;
                     }
                 }
+                #nexustray {
+                    /* flex: 1; */
+                    margin-inline: 15px;
+                    text-align: end;
+                    #lemonthyme {
+                        font-weight: bold;
+                    }
+                    #lemondate {
+                        font-size: 0.65em;
+                    }
+                }
                 
             }
-            div {
-                margin-inline: 10px;
+            #profile {
+                /* flex: 1; */
+                padding-inline: 25px;
                 img {
                     width: 50px;
                     border-radius: 25px;
@@ -193,6 +213,7 @@ main {
     box-shadow: var(--static);
     border-radius: 25px;
     transition: box-shadow 500ms, scale 500ms, background-color 250ms;
+    backdrop-filter: blur(5px);
 }.widget:focus{
     animation-timing-function: ease-in-out;
     scale: 1.1;
@@ -232,94 +253,6 @@ svg {
     display: none;
 }
 
-/* 
-
-##     ##  #######  ########  ##     ## ##       ########  ######  
-###   ### ##     ## ##     ## ##     ## ##       ##       ##    ## 
-#### #### ##     ## ##     ## ##     ## ##       ##       ##       
-## ### ## ##     ## ##     ## ##     ## ##       ######    ######  
-##     ## ##     ## ##     ## ##     ## ##       ##             ## 
-##     ## ##     ## ##     ## ##     ## ##       ##       ##    ## 
-##     ##  #######  ########   #######  ######## ########  ######  
-
-*/
-
-#nexuslauncher {
-    
-    #bookmarks {
-        padding-block: 1em;
-        display: flex;
-        gap: 25px;
-        flex-wrap: wrap;
-        a.page {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-decoration: none;
-            div {
-                border-radius: 50px;
-                text-decoration: none;
-                width: 75px;
-                height: 75px;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center; 
-                img {
-                    width: 50px;
-                    height: 50px;
-                }
-            }
-            p {
-                margin: 0;
-                color: var(--dark-mode-text);
-                text-shadow: 1px 0px 2px black;
-                padding-top: 10px;
-                font-weight: bold;
-            }
-        }
-        
-    }
-}
-
-#apptray {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 5em;
-    a {
-        width: 150px;
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-        color: var(--dark-mode-text);
-        margin: 5px;
-        border-radius: 50px;
-        padding-inline: 25px;
-        img {
-            width: 25px;
-        }
-        p {
-            padding-left: 25px;
-        }
-    }
-}
-
-#searchbar {
-    width: 100%;
-    background-color: var(--secondary-color);
-    margin-block: 5em;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 1.5em;
-    font-family: var(--font);
-    border: none;
-    outline: none;
-}#searchbar:focus{
-    background-color: white;
-}#searchbar::placeholder {
-    color: rgb(0, 0, 0, 0.5);
-    font-family: var(--font);
-}
 
 /* 
 
@@ -475,7 +408,7 @@ svg {
 
  */
 
-body, h1, h2, h3, h4, h5, h6 {
+body, h1, h2, h3, h4, h5, h6, p {
     margin: 0;
     font-size: 1em;
     font-weight: lighter;

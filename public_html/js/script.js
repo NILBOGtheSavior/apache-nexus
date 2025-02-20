@@ -25,34 +25,34 @@
 
 
 
-
 /*##############################################################*/
 
 import {Lemon8} from "./lemon8.js";
 
 class Nexus {
   /*
-.##..##..######..##..##..##..##...####..
-.###.##..##.......####...##..##..##.....
-.##.###..####......##....##..##...####..
-.##..##..##.......####...##..##......##.
-.##..##..######..##..##...####....####..
-........................................
+  ............................................................
+   ..........##..##..######..##..##..##..##...####............
+   ..........###.##..##.......####...##..##..##...............
+   ..........##.###..####......##....##..##...####............
+   ..........##..##..##.......####...##..##......##...........
+   ..........##..##..######..##..##...####....####............
+   ...........................................................
  */
 
   constructor() {
 
-      // Mode init
-      if (sessionStorage.getItem("isLoggedIn") === "true") {
+      // This section checks localStorage for a login session.
+
+      if (localStorage.getItem("isLoggedIn") === "true") {
         this.isLoggedIn = true;
-        console.log("User is logged in as", sessionStorage.getItem("username"));
+        console.log("User is logged in as", localStorage.getItem("username"));
       } else {
         console.log("You are not logged in")
         this.isLoggedIn = false;
       }    
       
       this.editMode = false;
-
       this.getElements(/* 
                           
                 Elements include this.{
@@ -71,26 +71,60 @@ class Nexus {
       **/);
       
 
-      const lemon8 = new Lemon8();
-      lemon8.zestVG();
+      this.lemon8 = new Lemon8();
+      this.lemon8.zestVG();
 
-      this.menu.addEventListener("focus", () => this.toggleMenu());
-      this.menu.addEventListener("blur", () => {
-        this.options.classList.add('invisible');
-        this.clock.classList.remove('invisible');
+
+  /*
+  .######..##..##..######..##..##..######..........##......######...####...######.........
+  .##......##..##..##......###.##....##............##........##....##........##...........
+  .####....##..##..####....##.###....##............##........##.....####.....##....######.
+  .##.......####...##......##..##....##............##........##........##....##...........
+  .######....##....######..##..##....##............######..######...####.....##...........
+  ........................................................................................
+  */
+
+      //  menu
+
+      this.menu.addEventListener("mouseover", () => {
+        this.menu.style.width = "350px";
+        this.options.classList.remove('invisible');
+        // this.clock.classList.add('invisible');
       });
+      this.menu.addEventListener("mouseout", () => {
+        this.menu.style.width = "200px";
+        this.options.classList.add('invisible');
+        // this.clock.classList.remove('invisible');
+      });
+
+      //  edit
 
       this.edit.addEventListener("click", () => {
         this.toggleEdit();
       });
+
+      //  light
+      
       this.light.addEventListener("click", () => {
         console.log("light clicked");
       });
+
+      //  settings
+
       this.settings.addEventListener("click", () => {
         console.log("settings clicked");
       });
 
   }
+
+  /*
+  .##...##..######..######..##..##...####...#####....####..
+  .###.###..##........##....##..##..##..##..##..##..##.....
+  .##.#.##..####......##....######..##..##..##..##...####..
+  .##...##..##........##....##..##..##..##..##..##......##.
+  .##...##..######....##....##..##...####...#####....####..
+  .........................................................
+  */
 
   getElements() {
     this.body = document.querySelector("body");
@@ -105,29 +139,22 @@ class Nexus {
     this.clock = document.getElementById("lemonthyme");
   }
 
-  toggleMenu() {
-    this.options.classList.remove('invisible');
-    this.clock.classList.add('invisible');
-
-  }
-
   toggleEdit() {
     let dashboard = document.querySelector("html");
 
     if (this.editMode) {
       console.log("Turning off edit mode");
-      window.removeEventListener("beforeunload", this.warnBeforeUnload);
+      // window.removeEventListener("beforeunload", this.warnBeforeUnload);
       dashboard.style.boxShadow = "none";
       this.editMode = false;
       dashboard.style.opacity = "1";
 
     } else {
       console.log("Turning on edit mode");
-      window.addEventListener("beforeunload", this.warnBeforeUnload);
-      dashboard.style.boxShadow = "inset 0 0 10px 25px white";
+      // window.addEventListener("beforeunload", this.warnBeforeUnload);
       dashboard.style.opacity = "0.75";
       this.editMode = true;
-
+      this.lemon8.lemon8('bookmarks', null, 'end', null);
 
     }
     
@@ -151,7 +178,14 @@ class Nexus {
 
 }
 
-
+/*
+.######..##..##..######..######.
+...##....###.##....##......##...
+...##....##.###....##......##...
+...##....##..##....##......##...
+.######..##..##..######....##...
+................................
+*/
 
 // Initialization
 window.addEventListener("load", () => {
@@ -165,9 +199,9 @@ window.addEventListener("load", () => {
       nexus.login.style.display = "block";
       nexus.form.addEventListener("submit", function login(event) {
         let username = document.getElementById("username").value.trim();
-        sessionStorage.setItem("username", username);
-        sessionStorage.setItem("isLoggedIn", true);
-        sessionStorage.setItem("bookmarks", JSON.stringify([]));
+        localStorage.setItem("username", username);
+        localStorage.setItem("isLoggedIn", true);
+        localStorage.setItem("bookmarks", JSON.stringify([]));
         loader();
       });
     }
@@ -176,6 +210,7 @@ window.addEventListener("load", () => {
       document.getElementById("loadStatus").innerHTML = "Welcome!";
       loadingScreen.style.opacity = "0";
       loadingScreen.style.height = "0";
+      loadingScreen.style.pointerEvents = "none";
       setTimeout(() => loadingScreen.remove(), 2500);
       nexus.main.style.display = "block";
       nexus.main.style.opacity = 1;

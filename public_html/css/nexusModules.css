@@ -1,0 +1,95 @@
+ /*
+  *                        |                                     
+  *    ,---.,---.,---.,---.|---.,---.    ,---.,---..  ,.   .,---.
+  *    ,---||   |,---||    |   ||---'    |   ||---' >< |   |`---.
+  *    `---^|---'`---^`---'`   '`---'    `   '`---''  ``---'`---'
+  *         |                                    nexusModules.css
+  *                                               
+  *               https://github.com/NILBOGtheSavior/apache-nexus
+  * 
+  */
+
+
+
+#nexuslauncher {
+/* Remove the clear button from the search input */
+    input[type="search"]::-webkit-search-cancel-button {
+        -webkit-appearance: none;
+    }
+
+    #searchbar {
+        width: 100%;
+        background-color: var(--secondary-color);
+        margin-block: 5em;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 1.5em;
+        font-family: var(--font);
+        border: none;
+        outline: none;
+    }#searchbar:focus{
+        background-color: white;
+    }#searchbar::placeholder {
+        color: rgb(0, 0, 0, 0.5);
+        font-family: var(--font);
+    }
+    
+    #bookmarks {
+        padding-block: 1em;
+        display: flex;
+        gap: 25px;
+        flex-wrap: wrap;
+        a.page {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            div {
+                border-radius: 50px;
+                text-decoration: none;
+                width: 75px;
+                height: 75px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center; 
+                img {
+                    width: 50px;
+                    height: 50px;
+                }
+            }
+            p {
+                margin: 0;
+                color: var(--dark-mode-text);
+                text-shadow: 1px 0px 2px black;
+                text-align: center;
+                padding-top: 10px;
+                font-weight: bold;
+            }
+        }
+        
+    }
+}
+
+#apptray {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 5em;
+    a {
+        width: 150px;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: var(--dark-mode-text);
+        margin: 5px;
+        border-radius: 50px;
+        padding-inline: 25px;
+        img {
+            width: 25px;
+        }
+        p {
+            padding-left: 25px;
+        }
+    }
+}
+
