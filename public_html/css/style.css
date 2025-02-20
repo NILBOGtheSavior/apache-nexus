@@ -9,6 +9,21 @@
   * 
   */
 
+
+
+
+/*
+
+##     ##    ###    ########   ######  
+##     ##   ## ##   ##     ## ##    ## 
+##     ##  ##   ##  ##     ## ##       
+##     ## ##     ## ########   ######  
+ ##   ##  ######### ##   ##         ## 
+  ## ##   ##     ## ##    ##  ##    ## 
+   ###    ##     ## ##     ##  ######  
+
+*/
+
 :root {
     --primary-color: var(--dark-mode);
     --secondary-color: var(--light-mode);
@@ -20,6 +35,11 @@
     --dark-mode-text: white;
     --light-mode-text: black;
     --font: quicksand;
+    --static: -2px 2px 6px -2px var(--secondary-font);
+    --focus: 0 5px 15px 0px var(--secondary-font);
+    --hover: 0 2px 5px 2px var(--primary-color);
+    
+
 }
 
 @font-face {
@@ -28,7 +48,17 @@
         url(fonts/Quicksand_Light.otf);
 }
 
-/* Styles */
+/* 
+
+#### ##    ## ########  ######## ##     ## 
+ ##  ###   ## ##     ## ##        ##   ##  
+ ##  ####  ## ##     ## ##         ## ##   
+ ##  ## ## ## ##     ## ######      ###    
+ ##  ##  #### ##     ## ##         ## ##   
+ ##  ##   ### ##     ## ##        ##   ##  
+#### ##    ## ########  ######## ##     ## 
+
+*/
 
 body {
     font-family: var(--font);
@@ -38,6 +68,7 @@ body {
     background-attachment: fixed;
     height: 100vh;
     transition: box-shadow 500ms;
+    overflow: hidden;
 }
 
 header {
@@ -92,9 +123,12 @@ header {
 }
 
 main {
+    display: none;
     max-width: 75%;
     margin: auto;
     padding: 2.5em ;
+    opacity: 0;
+    transition: opacity 2500ms;
 }
 
 .container {
@@ -103,7 +137,34 @@ main {
     align-items: stretch;
 }
     
-/* Default styles */
+/* 
+
+ ######  ######## ##    ## ##       ########  ######  
+##    ##    ##     ##  ##  ##       ##       ##    ## 
+##          ##      ####   ##       ##       ##       
+ ######     ##       ##    ##       ######    ######  
+      ##    ##       ##    ##       ##             ## 
+##    ##    ##       ##    ##       ##       ##    ## 
+ ######     ##       ##    ######## ########  ######  
+
+ */
+
+ .textinput {
+    width: 100%;
+    background-color: var(--secondary-color);
+    margin-block: 5em;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 1.5em;
+    font-family: var(--font);
+    border: none;
+    outline: none;
+}.textinput:focus{
+    background-color: white;
+}.textinput::placeholder {
+    color: rgb(255, 255, 255, 0.5);
+    font-family: var(--font);
+}
 
 .acrylicPanel {
     background-color: var(--primary-color);
@@ -112,7 +173,7 @@ main {
     padding: 1em;
     border-radius: 25px;
     margin-block: 1em;
-    box-shadow: -2px 2px 6px -2px var(--secondary-font);
+    box-shadow: var(--static);
 }
 
 .acrylicWidget {
@@ -123,21 +184,21 @@ main {
 }.acrylicWidget:focus {
     animation-timing-function: ease-in-out;
     scale: 1.1;
-    box-shadow: 5 5 15px 0px var(--secondary-font);
+    box-shadow: var(--focus);
 }.acrylicWidget:hover {
     background-color: var(--dark-mode-active);
 }
 
 .widget {
-    box-shadow: 0px 0px 6px -2px var(--secondary-font);
+    box-shadow: var(--static);
     border-radius: 25px;
     transition: box-shadow 500ms, scale 500ms, background-color 250ms;
 }.widget:focus{
     animation-timing-function: ease-in-out;
     scale: 1.1;
-    box-shadow: 0 5px 15px 0px var(--secondary-font);
+    box-shadow: var(--focus);
 }.widget:hover {
-    box-shadow: 0 2px 5px 2px var(--primary-color);
+    box-shadow: var(--hover);
     cursor: pointer;
 }
 
@@ -167,7 +228,21 @@ svg {
     fill: var(--primary-font);
 }
 
-/* Modules */
+#login {
+    display: none;
+}
+
+/* 
+
+##     ##  #######  ########  ##     ## ##       ########  ######  
+###   ### ##     ## ##     ## ##     ## ##       ##       ##    ## 
+#### #### ##     ## ##     ## ##     ## ##       ##       ##       
+## ### ## ##     ## ##     ## ##     ## ##       ######    ######  
+##     ## ##     ## ##     ## ##     ## ##       ##             ## 
+##     ## ##     ## ##     ## ##     ## ##       ##       ##    ## 
+##     ##  #######  ########   #######  ######## ########  ######  
+
+*/
 
 #nexuslauncher {
     
@@ -246,7 +321,133 @@ svg {
     font-family: var(--font);
 }
 
-/* Modifiers */
+/* 
+
+##        #######     ###    ########  ######## ########  
+##       ##     ##   ## ##   ##     ## ##       ##     ## 
+##       ##     ##  ##   ##  ##     ## ##       ##     ## 
+##       ##     ## ##     ## ##     ## ######   ########  
+##       ##     ## ######### ##     ## ##       ##   ##   
+##       ##     ## ##     ## ##     ## ##       ##    ##  
+########  #######  ##     ## ########  ######## ##     ## 
+
+*/
+
+#loadingScreen {
+    width: 100%;
+    height: 100%;
+    position: static;
+    top: 0px;
+    transition: opacity 2500ms, height 1000ms;
+    .loader {
+        width: 100%;
+        height: 100vh;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 1;
+        background-color: var(--primary-color);
+        img {
+            width: 50vw;
+            max-width: 500px;
+        }
+        h2 {
+            color: var(--dark-mode-text);
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-block: 2em;
+        }
+        form {
+            max-width: 500px;
+            color: var(--dark-mode-text);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 1em;
+            label {
+                margin: 1em;
+                font-size: 1.25em;
+            }
+            .textinput {
+                margin: 1em;
+                font-size: 1.25em;
+                padding: 1em;
+                background-color: var(--primary-color);
+                color: var(--dark-mode-text);
+                border: none;
+                box-shadow: var(--static) ;
+                border-radius: 50px;
+            }
+            .fileUpload {
+                width: 100%;
+                height: 150px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                border-radius: 15px;
+                svg {
+                    pointer-events: none;
+                    height: 75px;
+                    width: 75px;
+                    position: absolute;
+                    margin-block: 1em;
+                }
+                #configFile {
+                    width: 100%;
+                    height: 100%;
+                    cursor: pointer;
+                    color: var(--dark-mode-text);
+                    font-family: var(--font);
+                }
+                input[type="file"]::file-selector-button {
+                    pointer-events: none;
+                    border: none;
+                    background-color: transparent;
+                    display: none;
+                  }
+                  
+                  input[type="file"]::file-selector-button:hover {
+                    background-color: #81ecec;
+                    border: 2px solid #00cec9;
+                    color: var(--dark-mode-text);
+                  }
+                
+            }
+            #continue {
+                border: none;
+                padding: 1em;
+                font-size: 1.25em;
+                font-family: var(--font);
+                font-weight: bold;
+                border-radius: 50px;
+                cursor: pointer;
+                background-color: var(--secondary-color);
+                color: var(--light-mode-text);
+                width: 150px;
+                margin: 1em;
+            }
+            
+        }
+    }
+    
+}
+
+
+
+/* 
+
+##     ##  #######  ########  #### ######## #### ######## ########   ######  
+###   ### ##     ## ##     ##  ##  ##        ##  ##       ##     ## ##    ## 
+#### #### ##     ## ##     ##  ##  ##        ##  ##       ##     ## ##       
+## ### ## ##     ## ##     ##  ##  ######    ##  ######   ########   ######  
+##     ## ##     ## ##     ##  ##  ##        ##  ##       ##   ##         ## 
+##     ## ##     ## ##     ##  ##  ##        ##  ##       ##    ##  ##    ## 
+##     ##  #######  ########  #### ##       #### ######## ##     ##  ######  
+
+*/
 
 .viewMode {
     justify-content: center;
@@ -262,7 +463,17 @@ svg {
     cursor: pointer;
 }
 
-/* Reset */
+/*
+
+########  ########  ######  ######## ######## 
+##     ## ##       ##    ## ##          ##    
+##     ## ##       ##       ##          ##    
+########  ######    ######  ######      ##    
+##   ##   ##             ## ##          ##    
+##    ##  ##       ##    ## ##          ##    
+##     ## ########  ######  ########    ##                                 
+
+ */
 
 body, h1, h2, h3, h4, h5, h6 {
     margin: 0;

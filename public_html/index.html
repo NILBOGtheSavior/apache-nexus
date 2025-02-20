@@ -18,7 +18,23 @@
         <link rel="stylesheet" href="css/style.css">
         <script src="/js/script.js" type="module"></script>
     </head>
-    <body> 
+    <body>
+        <div id="loadingScreen">
+            <div class="loader">
+                <img src="img/logo.gif" alt="">
+                <h2 id="loadStatus">Loading...</h2>
+
+                <div id="login">
+                    <form  onsubmit="return false">
+                        <label for="username">Enter your name</label>
+                        <input type="text" name="username" id="username" class="textinput acrylicPanel widget" placeholder="username" autocomplete="off" tabindex="0">
+                        <button type="submit" class="acrylicPanel widget" id="continue">Continue</button>
+                    </form>
+                </div>
+            </div>
+            
+            
+        </div>
         <main>
             <header>
                 <div class="acrylicPanel">
