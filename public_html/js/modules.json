@@ -1,0 +1,12 @@
+{
+    "bookmarks": [
+        {
+            "template": "bookmark",
+            "innerhtml": "\n    <a class=\"page\" href=\"${url}\" template=\"bookmark\">\n              <div class=\"acrylicWidget widget icon\"><img src=\"${favicon}\" class=\"favicon\" alt=\"\" ></div>\n              <div class=\"label\"><p>${name}</p></div>\n    </a>\n    "
+        },
+        {
+            "template": "editmode",
+            "innerhtml": "\n    <a class=\"page\" href=\"http://github.com\" >\n            <div class=\"acrylicWidget widget\">+</div>\n            <div class=\"label\"><p>Add<br>bookmark</p></div>\n    </a>\n"
+        }
+    ]
+}

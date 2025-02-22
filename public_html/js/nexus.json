@@ -1,0 +1,62 @@
+{
+    "userSettings": 
+    {
+        "name": "nilbog"
+    },
+    "moduleSettings": 
+        {
+        "bookmarks": [
+            {
+                "name": "GitHub",
+                "url": "http://github.com",
+                "favicon": ""
+            },
+            {
+                "name": "ChatGPT",
+                "url": "http://chat.openai.com",
+                "favicon": ""
+            },
+            {
+                "name": "YouTube",
+                "url": "http://youtube.com",
+                "favicon": "" 
+            },
+            {
+                "name": "Google",
+                "url": "http://google.com",
+                "favicon": ""
+            },
+            {
+                "name": "Stack Overflow",
+                "url": "http://stackoverflow.com",
+                "favicon": ""
+            },
+            {
+                "name": "Reddit",
+                "url": "http://reddit.com",
+                "favicon": ""
+            },
+            {
+                "name": "Mozilla Developer",
+                "url": "https://developer.mozilla.org",
+                "favicon": ""
+            },
+            {
+                "name": "GitLab",
+                "url": "http://gitlab.com",
+                "favicon": ""
+            },
+            {
+                "name": "Hacker News",
+                "url": "https://news.ycombinator.com",
+                "favicon": ""
+            },
+            {
+                "name": "Netflix",
+                "url": "http://netflix.com",
+                "favicon": ""
+            }
+        ]
+    }
+    
+}

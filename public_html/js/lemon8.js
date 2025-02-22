@@ -41,42 +41,71 @@ export class Lemon8 {
 		  this.modules = [];
     }
 
-  
-
-  lemon8(element, content = null, position = null, vars = null) {
-    let elemont = document.getElementById(element);
+  static lemon8(id, content = null, position = null, vars = null) { // Injector
+    let elemont = document.getElementById(id);
+    let juice = null;
     if (!elemont) {
       console.error("Element not found");
       return;
     }
 
-    let juice = this.juicer(content, vars);
-    if (!juice) {
-      console.error("Juicer function didn't return valid content");
-      return;
-    }
+    juice = Lemon8.juicer(content, vars);
 
     if (position === 'end') {
       elemont.insertAdjacentHTML('beforeend', juice);
-      console.log("Content appended");
     } else {
       elemont.innerHTML = juice;
     }
   }
 
-  juicer(content = null, vars = null) {
+  static juicer(content = null, vars = null) {
     if (!content) {
-      content = "<h1 style='background-color: yellow; border: solid 5px black; padding: 25px; border-radius: 50px;'>lemon8 is injecting this element</h1>";
+        content = "<h1 style='background-color: yellow; border: solid 5px black; padding: 25px; border-radius: 50px;'>lemon8 is injecting this element</h1>";
     }
-    if (vars) {
-      console.log("format content complete");
-      // Additional variable handling can be done here if needed
+
+    // Ensure content is a string
+    if (typeof content !== 'string') {
+        console.error("Expected content to be a string, but got:", typeof content);
+        return content;
     }
-    return content;  // Return content as a string
+
+    if (vars && typeof vars === 'object') {  
+        console.log("Replacing placeholders with:", vars);
+
+        // Replace all placeholders ${key} with corresponding values from vars
+        Object.keys(vars).forEach((key) => {
+          if (key === 'favicon') {
+              // Call getFavicon using vars['url'] and set it as favicon value
+              const placeholder = new RegExp(`\\$\\{${key}\\}`, 'g');
+              vars[key] = Lemon8.lemicon(vars["url"]);
+              content = content.replace(placeholder, vars[key]);
+          } else {
+              const placeholder = new RegExp(`\\$\\{${key}\\}`, 'g'); // Match ${key}
+              content = content.replace(placeholder, vars[key]); // Replace with actual value
+          }
+      });
+    }
+
+    return content;  // Return processed HTML string
+}
+
+
+  
+  drink() {
+    console.log("removed Lemon8 object")
   }
 
-  pinkLemonade(fileName) {
-
+  static async lemON(fileName) {
+    try {
+      const response = await fetch(fileName);
+      if (!response.ok) throw new Error(`Failed to load ${fileName}: ${response.statusText}`);
+  
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error("Error parsing JSON:", error);
+      return null;
+    }
   }
     
 
@@ -88,30 +117,44 @@ export class Lemon8 {
 	  *
     */
 
-	async zestVG() {
-		try {
-			const svgList = document.querySelectorAll('svg');
-			for (let i = 0; i < svgList.length; i++) {
-				let svg = svgList[i];
-				// svg.style.display = "none";
-				if (svg.getAttribute('src')) {
-					const response = await fetch(svg.getAttribute('src'));
-					if (!response.ok) {
-						throw new Error('Network response was not ok');
-					}
-					svg.outerHTML = await response.text();
-				}
-			}
-		} catch (error) {
-			console.error('Error injecting SVGs:', error);
-		}
-	}
+  async fetchFile(url) {
+      const response = await fetch(url);
+      if (!response.ok) {
+          throw new Error('Network response was not ok');
+      }
+      return await response.text();
+  }
+  
+  async zestVG() {
+      try {
+          const svgList = document.querySelectorAll('svg');
+          for (let i = 0; i < svgList.length; i++) {
+              let svg = svgList[i];
+              if (svg.getAttribute('src')) {
+                  const svgContent = await this.fetchFile(svg.getAttribute('src'));
+                  svg.outerHTML = svgContent;
+              }
+          }
+      } catch (error) {
+          console.error('Error injecting SVGs:', error);
+      }
+  }
 
   //  Lemicon Favicon fetcher
 
-  lemicon() {
-    console.log("Called lemicon");
+  static lemicon(url) {
+    return `https://icons.duckduckgo.com/ip3/${new URL(url).hostname}.ico`;
   }
+
+  static lemonator(multilineString) {
+    return multilineString
+        .replace(/\\/g, '\\\\') // Escape backslashes
+        .replace(/"/g, '\\"')   // Escape double quotes
+        .replace(/\r?\n/g, '\\n')  // Normalize newlines
+        .replace(/\t/g, '\\t')  // Escape tabs
+        .trim();  // Trim unnecessary whitespace at the start and end
+  }
+
 }
 
 export default Lemon8;
