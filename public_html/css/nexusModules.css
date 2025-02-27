@@ -79,20 +79,21 @@
     display: flex;
     flex-wrap: wrap;
     margin-top: 5em;
+    gap: 25px;
     a {
-        width: 150px;
+        /* width: 150px; */
         display: flex;
         align-items: center;
         text-decoration: none;
         color: var(--dark-mode-text);
-        margin: 5px;
         border-radius: 50px;
-        padding-inline: 25px;
-        img {
+        padding: 10px 25px;
+        img, svg {
             width: 25px;
+            height: 25px;
         }
         p {
-            padding-left: 25px;
+            padding-inline: 25px;
         }
     }
 }
